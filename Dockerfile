@@ -1,4 +1,5 @@
 ARG UBUNTU_VERSION=jammy
+ARG PHP_VERSION=8.2
 
 FROM ubuntu:$UBUNTU_VERSION
 
@@ -11,8 +12,6 @@ RUN apt -qqq install software-properties-common
 RUN add-apt-repository --yes ppa:ondrej/php
 
 RUN apt -qqq install ca-certificates && /usr/sbin/update-ca-certificates
-
-ARG PHP_VERSION=8.2
 
 RUN apt -qqq install php${PHP_VERSION}
 
