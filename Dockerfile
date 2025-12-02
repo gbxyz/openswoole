@@ -1,5 +1,4 @@
 ARG UBUNTU_VERSION=noble
-ARG PHP_VERSION=8.4
 
 FROM ubuntu:$UBUNTU_VERSION
 
@@ -12,6 +11,8 @@ RUN apt -qqq install software-properties-common
 RUN add-apt-repository --yes ppa:ondrej/php
 
 RUN apt -qqq install ca-certificates && /usr/sbin/update-ca-certificates
+
+ARG PHP_VERSION=8.4
 
 RUN apt -qqq install php${PHP_VERSION}
 
