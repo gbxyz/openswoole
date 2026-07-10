@@ -21,6 +21,10 @@ jobs:
             tag: gbxyz/openswoole:php84-noble
             ubuntu_version: noble
 
+          - version: 8.5
+            tag: gbxyz/openswoole:php85-noble
+            ubuntu_version: noble
+
     steps:
       - uses: actions/checkout@v4
 
