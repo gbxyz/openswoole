@@ -39,6 +39,8 @@ RUN apt -qqq install php-pear composer libcurl4-openssl-dev
 
 RUN pecl channel-update pecl.php.net
 
-RUN (yes yes | head -5 ; echo no) | pecl install openswoole
+ARG SWOOLE_OPTS='enable-sockets="yes" enable-openssl="yes" enable-http2="yes" enable-mysqlnd="yes" enable-hook-curl="yes" with-postgres="no"'
+
+RUN pecl install --configureoptions $SWOOLE_OPTS openswoole
 
 RUN echo extension=openswoole.so > /etc/php/${PHP_VERSION}/cli/conf.d/99-openswoole.ini
