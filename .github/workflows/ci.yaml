@@ -20,14 +20,17 @@ jobs:
           - version: 8.4
             tag: gbxyz/openswoole:php84-noble
             ubuntu_version: noble
+            swoole_version: 26.2.0
 
           - version: 8.5
             tag: gbxyz/openswoole:php85-noble
             ubuntu_version: noble
+            swoole_version: 26.2.0
 
           - version: 8.5
             tag: gbxyz/openswoole:php85-resolute
             ubuntu_version: resolute
+            swoole_version: 26.2.0
 
     steps:
       - uses: actions/checkout@v4
@@ -55,3 +58,4 @@ jobs:
           build-args: |
             PHP_VERSION=${{matrix.version}}
             UBUNTU_VERSION=${{matrix.ubuntu_version}}
+            SWOOLE_VERSION=${{matrix.swoole_version}}
