@@ -4,7 +4,7 @@ FROM ubuntu:$UBUNTU_VERSION
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt -qqq --allow-releaseinfo-change update
+RUN apt -qqq update --allow-releaseinfo-change
 
 RUN apt -qqq install software-properties-common
 
