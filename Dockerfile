@@ -40,7 +40,8 @@ RUN apt -qqq install php-pear composer libcurl4-openssl-dev
 RUN pecl channel-update pecl.php.net
 
 ARG SWOOLE_OPTS='enable-sockets="yes" enable-openssl="yes" enable-http2="yes" enable-mysqlnd="yes" enable-hook-curl="yes" with-postgres="no"'
+ARG SWOOLE_VERSION='26.2.0'
 
-RUN pecl install --configureoptions $SWOOLE_OPTS openswoole
+RUN pecl install --configureoptions $SWOOLE_OPTS openswoole-${SWOOLE_VERSION}
 
 RUN echo extension=openswoole.so > /etc/php/${PHP_VERSION}/cli/conf.d/99-openswoole.ini
