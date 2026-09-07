@@ -27,6 +27,7 @@ for MOD in bcmath bz2 cli curl dev gmp intl mbstring mysql sqlite3 xml yaml ; do
 done
 
 apt -qqq install \${PKGS}
+
 END
 
 #
@@ -35,7 +36,7 @@ END
 #
 RUN apt -qqq install php$PHP_VERSION-memcache || apt -qqq install php$PHP_VERSION-memcached
 
-RUN apt -qqq install php-pear composer libcurl4-openssl-dev
+RUN apt -qqq install php-pear composer libcurl4-openssl-dev g++ make
 
 RUN pecl channel-update pecl.php.net
 
